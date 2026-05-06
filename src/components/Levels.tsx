@@ -67,7 +67,6 @@ export function Levels() {
     <section id="levels" className="bg-ivory">
       <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="mb-16 reveal">
-          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4">✦ Choose Your Level</p>
           <h2 className="font-display text-[clamp(42px,6vw,80px)] leading-none tracking-wider">
             YOUR PATH STARTS HERE
           </h2>

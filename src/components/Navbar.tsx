@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -13,27 +13,19 @@ const LINKS = [
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
 
   return (
     <>
       <nav
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-noir/96 backdrop-blur-md border-b border-white/5"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 inset-x-0 z-50 bg-white/92 backdrop-blur-md border-b border-noir/10 transition-colors"
       >
         <div className="max-w-site mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="#" className="font-display text-2xl tracking-[3px] text-white leading-none">
+          <Link
+            href="#"
+            className="font-display text-2xl tracking-[3px] leading-none text-noir"
+          >
             ROZEZ<span className="text-pink">.</span>
           </Link>
 
@@ -43,7 +35,7 @@ export function Navbar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors pink-link"
+                  className="text-xs font-medium tracking-widest uppercase transition-colors pink-link text-noir/60 hover:text-noir"
                 >
                   {l.label}
                 </Link>
@@ -63,7 +55,7 @@ export function Navbar() {
 
           {/* Burger */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-noir"
             onClick={() => setOpen((o) => !o)}
             aria-label="Menu"
           >
@@ -74,7 +66,7 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-noir flex flex-col justify-center items-center gap-8 transition-all duration-500 ${
+        className={`fixed inset-0 z-40 bg-ivory flex flex-col justify-center items-center gap-8 transition-all duration-500 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -83,7 +75,7 @@ export function Navbar() {
             key={l.href}
             href={l.href}
             onClick={() => setOpen(false)}
-            className="font-display text-5xl text-white tracking-widest hover:text-pink transition-colors"
+            className="font-display text-5xl text-noir tracking-widest hover:text-pink transition-colors"
           >
             {l.label.toUpperCase()}
           </Link>

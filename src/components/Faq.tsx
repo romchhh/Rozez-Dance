@@ -11,7 +11,6 @@ export function Faq() {
     <section id="faq" className="bg-ivory-2">
       <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="max-w-2xl">
-          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4 reveal">✦ FAQ</p>
           <h2 className="font-display text-[clamp(40px,5vw,68px)] leading-none tracking-wider mb-14 reveal">
             GOT QUESTIONS?
           </h2>

@@ -40,9 +40,6 @@ export function ManifestoBanner() {
 
       {/* Manifesto */}
       <div className="max-w-site mx-auto px-6 md:px-10 py-24 text-center">
-        <p className="text-white/30 text-[10px] font-mono tracking-[4px] uppercase mb-8 reveal">
-          The philosophy
-        </p>
         <h2 className="font-display text-[clamp(36px,6vw,80px)] leading-[1] text-white tracking-wider mb-8 reveal">
           THIS IS MORE THAN DANCE.<br />
           <span className="text-pink">THIS IS HOW YOU FEEL YOURSELF.</span>

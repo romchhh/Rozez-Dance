@@ -4,7 +4,7 @@ import { Instagram, Youtube } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="bg-noir grain">
+    <section id="about" className="bg-ivory">
       <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
         {/* Image */}
@@ -30,30 +30,27 @@ export function About() {
 
         {/* Text */}
         <div>
-          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-5 reveal">
-            ✦ About Kristi
-          </p>
-          <h2 className="font-display text-[clamp(42px,5vw,72px)] leading-none tracking-wider text-white mb-6 reveal">
+          <h2 className="font-display text-[clamp(42px,5vw,72px)] leading-none tracking-wider text-noir mb-6 reveal">
             I DON&apos;T JUST<br />
             TEACH CHOREO.<br />
             <span className="text-pink">I HELP WOMEN<br />FEEL POWERFUL.</span>
           </h2>
 
-          <p className="text-white/50 text-sm leading-relaxed mb-4 reveal">
+          <p className="text-noir/60 text-sm leading-relaxed mb-4 reveal">
             I&apos;m Kristi — a dancer, creator and mentor. I believe in movement as a form of self-love,
             confidence and expression. Ukrainian-born, LA-raised in the dance world.
           </p>
-          <p className="text-white/50 text-sm leading-relaxed mb-8 reveal">
+          <p className="text-noir/60 text-sm leading-relaxed mb-8 reveal">
             Every class is designed to help you discover your power, grace, and authentic self.
             Welcome to my world.
           </p>
 
           {/* Stats row */}
-          <div className="flex gap-8 border-t border-white/10 pt-8 mb-8 reveal">
+          <div className="flex gap-8 border-t border-noir/10 pt-8 mb-8 reveal">
             {[["500+","Students"], ["5+","Years"], ["15K+","Followers"]].map(([n, l]) => (
               <div key={l}>
                 <div className="font-display text-3xl text-pink tracking-wider">{n}</div>
-                <div className="text-white/30 text-[10px] font-mono tracking-[2px] uppercase">{l}</div>
+                <div className="text-noir/40 text-[10px] font-mono tracking-[2px] uppercase">{l}</div>
               </div>
             ))}
           </div>
@@ -63,14 +60,14 @@ export function About() {
             <Link
               href="https://www.instagram.com/kristirozez/"
               target="_blank"
-              className="flex items-center gap-2 border border-white/15 text-white/50 text-xs font-mono tracking-widest uppercase px-4 py-2.5 hover:border-pink hover:text-pink transition-colors"
+              className="flex items-center gap-2 border border-noir/15 text-noir/60 text-xs font-mono tracking-widest uppercase px-4 py-2.5 hover:border-pink hover:text-pink transition-colors"
             >
               <Instagram size={13} /> @kristirozez
             </Link>
             <Link
               href="https://www.tiktok.com/@rozezdance"
               target="_blank"
-              className="flex items-center gap-2 border border-white/15 text-white/50 text-xs font-mono tracking-widest uppercase px-4 py-2.5 hover:border-pink hover:text-pink transition-colors"
+              className="flex items-center gap-2 border border-noir/15 text-noir/60 text-xs font-mono tracking-widest uppercase px-4 py-2.5 hover:border-pink hover:text-pink transition-colors"
             >
               <Youtube size={13} /> @rozezdance
             </Link>

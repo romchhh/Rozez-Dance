@@ -6,9 +6,6 @@ export function Testimonials() {
     <section className="bg-ivory-2">
       <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="mb-16">
-          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4 reveal">
-            ✦ What My Girls Say
-          </p>
           <h2 className="font-display text-[clamp(40px,5vw,72px)] leading-none tracking-wider reveal">
             REAL WORDS.<br />REAL WOMEN.
           </h2>

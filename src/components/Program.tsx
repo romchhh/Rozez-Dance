@@ -16,9 +16,6 @@ export function Program() {
 
         {/* Text */}
         <div>
-          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-5 reveal">
-            ✦ The Program
-          </p>
           <h2 className="font-display text-[clamp(42px,6vw,76px)] leading-none tracking-wider mb-8 reveal">
             <span className="text-pink">3 WEEKS</span><br />
             TECHNIQUE<br />

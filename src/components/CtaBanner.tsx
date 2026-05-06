@@ -12,9 +12,6 @@ export function CtaBanner() {
       </div>
 
       <div className="relative max-w-site mx-auto px-6 md:px-10 py-24 md:py-32 text-center">
-        <p className="text-white/60 text-[10px] font-mono tracking-[4px] uppercase mb-6 reveal">
-          ✦ New Season · May 11
-        </p>
         <h2 className="font-display text-[clamp(54px,8vw,110px)] leading-none tracking-wider text-white mb-6 reveal">
           READY TO<br />BLOOM?
         </h2>
