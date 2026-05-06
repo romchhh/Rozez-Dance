@@ -1,45 +1,52 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Instagram, ArrowRight } from "lucide-react";
 import { INSTAGRAM_IMAGES } from "@/lib/data";
 
 export function Community() {
   return (
-    <section id="community" className="bg-dark text-white px-6 md:px-14 py-24 text-center">
-      <div className="text-gold text-[11px] font-bold tracking-[3px] uppercase mb-4">✦ Community</div>
-
-      <h2 className="reveal font-barlow-condensed font-black uppercase text-[clamp(40px,5vw,72px)] leading-none mb-5">
-        Join the Rozez
-        <br />
-        Family 🌹
-      </h2>
-
-      <p className="reveal text-base text-white/60 max-w-xl mx-auto leading-[1.7] mb-14">
-        Follow our journey, get inspired, and connect with a community of dancers who lift each other
-        up.
-      </p>
-
-      <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
-        {INSTAGRAM_IMAGES.map((img) => (
-          <div key={img.src} className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover saturate-[0.8] group-hover:saturate-100 group-hover:scale-[1.08] transition-all duration-400"
-              sizes="(max-width: 768px) 50vw, 25vw"
-            />
-            <div className="absolute inset-0 bg-red/0 group-hover:bg-red/20 transition-colors duration-300" />
+    <section id="community" className="bg-ivory">
+      <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 reveal">
+          <div>
+            <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4">✦ Community</p>
+            <h2 className="font-display text-[clamp(40px,5vw,68px)] leading-none tracking-wider">
+              JOIN THE<br />MOVEMENT 🌹
+            </h2>
           </div>
-        ))}
-      </div>
+          <Link
+            href="https://www.instagram.com/kristirozez/"
+            target="_blank"
+            className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-noir/60 hover:text-pink transition-colors group flex-shrink-0"
+          >
+            <Instagram size={15} />
+            @kristirozez
+            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
 
-      <Link
-        href="https://www.instagram.com/kristirozez/"
-        target="_blank"
-        className="text-gold text-lg font-semibold tracking-wide inline-flex items-center gap-2 hover:gap-4 transition-all"
-      >
-        Follow @kristirozez →
-      </Link>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 reveal">
+          {INSTAGRAM_IMAGES.map((img, i) => (
+            <div
+              key={img.src}
+              className={`relative overflow-hidden img-zoom group ${
+                i === 0 ? "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" : "aspect-square"
+              }`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover saturate-[0.85] group-hover:saturate-100 transition-all duration-600"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/20 transition-colors duration-300 flex items-center justify-center">
+                <Instagram size={24} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

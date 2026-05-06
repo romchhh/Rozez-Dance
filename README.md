@@ -1,63 +1,65 @@
-# Rozez Dance — Next.js 14 + TypeScript + Tailwind CSS
+# Rozez Dance — v2 (Kristi Moves aesthetic)
 
-Website for Rozez Dance Studio by Kristi Rozez. High Heels & Jazz Funk classes in Los Angeles.
+Next.js 14 · TypeScript · Tailwind CSS · Lucide React
 
-## Tech Stack
+## Design System
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS v3**
-- **next/font** — Google Fonts (Playfair Display, Barlow, Barlow Condensed)
-- **next/image** — optimized images
+| Token       | Value       |
+|-------------|-------------|
+| Pink        | `#FF1F8E`   |
+| Noir        | `#0A0A0A`   |
+| Ivory       | `#F5F2EE`   |
+| Display     | Bebas Neue  |
+| Body        | DM Sans     |
+| Mono        | DM Mono     |
 
-## Getting Started
+## Special Features
+- Custom pink cursor (dot + ring)
+- Scroll-reveal animations (fade up / from-left / from-right)
+- Marquee ticker bands
+- Grain texture overlay
+- Hero zoom animation
+- Mobile full-screen nav
+
+## Get Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+## Your Photos
 
-## Project Structure
+Place these files in the `/public` directory:
+- `541554910_18523535326004241_1418162069959137408_n.jpg` — mobile hero
+- `Знімок екрана 2026-05-05 о 11.07.08.png` — desktop hero
+
+Then the hero background will automatically use them.
+
+## Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx       # Root layout with fonts & metadata
-│   ├── page.tsx         # Main page (assembles all sections)
-│   └── globals.css      # Global styles + Tailwind directives
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
 ├── components/
-│   ├── Navbar.tsx        # Sticky nav with scroll effect
-│   ├── Hero.tsx          # Full-screen hero section
-│   ├── Program.tsx       # 3-week program overview
-│   ├── ForYou.tsx        # "This program is for you" section
-│   ├── Levels.tsx        # Choose your level with accordion
-│   ├── About.tsx         # Kristi Rozez bio section
-│   ├── Testimonials.tsx  # Student reviews
-│   ├── Pricing.tsx       # Pricing cards
-│   ├── Community.tsx     # Instagram community section
-│   ├── Faq.tsx           # FAQ accordion
-│   ├── CtaBanner.tsx     # Final CTA section
-│   ├── Footer.tsx        # Footer
-│   └── RevealProvider.tsx # Scroll-triggered reveal animations
+│   ├── Providers.tsx      ← cursor + scroll-reveal
+│   ├── Navbar.tsx
+│   ├── Hero.tsx           ← your custom photos
+│   ├── ManifestoBanner.tsx
+│   ├── Program.tsx
+│   ├── ForYou.tsx
+│   ├── Levels.tsx
+│   ├── About.tsx
+│   ├── Stats.tsx
+│   ├── Testimonials.tsx
+│   ├── Pricing.tsx
+│   ├── Community.tsx
+│   ├── Faq.tsx
+│   ├── CtaBanner.tsx
+│   └── Footer.tsx
 └── lib/
-    ├── data.ts           # All site content as typed constants
-    └── useReveal.ts      # Custom hook (optional alternative)
+    └── data.ts            ← all content
 ```
-
-## Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## Customization
-
-All site content (courses, testimonials, pricing, FAQ) is centralized in `src/lib/data.ts` — easy to update without touching components.
-
-Colors, fonts, and animations are configured in `tailwind.config.ts`.

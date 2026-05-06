@@ -1,55 +1,42 @@
 import type { Metadata } from "next";
-import { RevealProvider } from "@/components/RevealProvider";
-import { Playfair_Display, Barlow, Barlow_Condensed } from "next/font/google";
+import { Bebas_Neue, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const display = Bebas_Neue({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: "400",
 });
 
-const barlow = Barlow({
-  variable: "--font-barlow",
+const body = DM_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
+const mono = DM_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "Rozez Dance — High Heels & Jazz Funk | Los Angeles",
   description:
-    "Bloom through dance. High Heels & Jazz Funk classes in Los Angeles by Kristi Rozez. 3-week technique program for beginners and intermediate dancers.",
-  keywords: [
-    "heels dance LA",
-    "jazz funk Los Angeles",
-    "heels classes West Hollywood",
-    "Kristi Rozez",
-    "Rozez Dance",
-  ],
+    "Bloom through dance. High Heels & Jazz Funk classes in West Hollywood by Kristi Rozez. 3-week technique program.",
   openGraph: {
-    title: "Rozez Dance — High Heels & Jazz Funk | Los Angeles",
-    description: "Bloom through dance. High Heels classes in LA by Kristi Rozez.",
+    title: "Rozez Dance | LA",
+    description: "Bloom through dance.",
     type: "website",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${playfair.variable} ${barlow.variable} ${barlowCondensed.variable} font-barlow antialiased`}
-      >
-        <RevealProvider>{children}</RevealProvider>
+      <body className={`${display.variable} ${body.variable} ${mono.variable} font-body antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

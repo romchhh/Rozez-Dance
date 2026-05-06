@@ -1,20 +1,34 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function CtaBanner() {
   return (
-    <section id="book" className="bg-red text-white px-6 md:px-14 py-20 text-center">
-      <h2 className="reveal font-barlow-condensed font-black uppercase text-[clamp(40px,5vw,72px)] leading-none mb-4">
-        Ready to Bloom?
-      </h2>
-      <p className="reveal text-lg text-white/85 mb-10">
-        New Season starts May 11. Limited spots available.
-      </p>
-      <Link
-        href="mailto:rozezdance@gmail.com"
-        className="inline-block bg-white text-red px-14 py-4 rounded-full text-sm font-bold uppercase tracking-wider shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)] transition-all"
-      >
-        Book Your Spot
-      </Link>
+    <section id="book" className="bg-pink grain relative overflow-hidden">
+      {/* Big text watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span className="font-display text-[clamp(120px,20vw,240px)] text-white/10 tracking-widest whitespace-nowrap">
+          BLOOM
+        </span>
+      </div>
+
+      <div className="relative max-w-site mx-auto px-6 md:px-10 py-24 md:py-32 text-center">
+        <p className="text-white/60 text-[10px] font-mono tracking-[4px] uppercase mb-6 reveal">
+          ✦ New Season · May 11
+        </p>
+        <h2 className="font-display text-[clamp(54px,8vw,110px)] leading-none tracking-wider text-white mb-6 reveal">
+          READY TO<br />BLOOM?
+        </h2>
+        <p className="text-white/70 text-base mb-10 reveal">
+          Limited spots available. Don&apos;t miss your chance.
+        </p>
+        <Link
+          href="mailto:rozezdance@gmail.com"
+          className="reveal inline-flex items-center gap-3 bg-white text-pink text-xs font-bold tracking-widest uppercase px-10 py-5 hover:bg-noir hover:text-white transition-colors group"
+        >
+          Book Your Spot
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
     </section>
   );
 }

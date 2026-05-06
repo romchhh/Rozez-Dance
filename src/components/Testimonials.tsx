@@ -3,38 +3,43 @@ import { TESTIMONIALS } from "@/lib/data";
 
 export function Testimonials() {
   return (
-    <section className="bg-cream-dark px-6 md:px-14 py-24 text-center">
-      <div className="text-red text-[11px] font-bold tracking-[3px] uppercase mb-4">✦ What Students Say</div>
-      <h2 className="reveal font-barlow-condensed font-black uppercase text-[clamp(36px,4vw,56px)] mb-14">
-        Real Stories, Real Transformations
-      </h2>
+    <section className="bg-ivory-2">
+      <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
+        <div className="mb-16">
+          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4 reveal">
+            ✦ What My Girls Say
+          </p>
+          <h2 className="font-display text-[clamp(40px,5vw,72px)] leading-none tracking-wider reveal">
+            REAL WORDS.<br />REAL WOMEN.
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-        {TESTIMONIALS.map((t) => (
-          <div
-            key={t.name}
-            className="reveal relative bg-cream rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300"
-          >
-            {/* Decorative quote */}
-            <span className="absolute top-3 left-6 font-playfair text-[80px] text-red/15 leading-none select-none">
-              &ldquo;
-            </span>
-
-            <div className="text-gold text-sm tracking-wider mb-3">★★★★★</div>
-
-            <p className="text-[15px] text-text-body leading-[1.7] mb-6 pt-4">{t.text}</p>
-
-            <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 rounded-full overflow-hidden bg-warm-gray shrink-0">
-                <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="44px" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={t.name}
+              className="relative reveal group"
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              {/* Quote */}
+              <div className="border border-noir/10 p-8 group-hover:border-pink/30 transition-colors duration-300">
+                <div className="font-display text-6xl text-pink/20 leading-none mb-2">&ldquo;</div>
+                <p className="text-noir/70 text-sm italic leading-relaxed mb-6">{t.text}</p>
+                <div className="flex items-center gap-3 border-t border-noir/8 pt-5">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                    <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-xs text-noir tracking-wide">{t.name}</div>
+                    <div className="text-noir/40 text-[11px]">{t.detail}</div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="font-bold text-sm text-dark">{t.name}</div>
-                <div className="text-xs text-text-muted">{t.detail}</div>
-              </div>
+              {/* Pink corner on hover */}
+              <div className="absolute bottom-0 left-0 w-6 h-6 bg-pink opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

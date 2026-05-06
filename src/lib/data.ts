@@ -1,61 +1,26 @@
-export interface GoalItem {
-  num: string;
-  text: string;
-}
+export interface GoalItem   { num: string; text: string }
+export interface CourseDetail { id: string; title: string; description: string; learnItems: string[]; image: string }
+export interface Testimonial  { text: string; name: string; detail: string; avatar: string }
+export interface PricingPlan  { id: string; name: string; description: string; price: number; period: string; features: string[]; featured: boolean }
+export interface FaqItem      { question: string; answer: string }
 
-export interface LevelGoals {
-  title: string;
-  goals: GoalItem[];
-}
-
-export interface CourseDetail {
-  id: string;
-  title: string;
-  color: string;
-  description: string;
-  learnItems: string[];
-  image: string;
-}
-
-export interface Testimonial {
-  text: string;
-  name: string;
-  detail: string;
-  avatar: string;
-}
-
-export interface PricingPlan {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  period: string;
-  features: string[];
-  featured: boolean;
-}
-
-export interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-export const LEVEL_GOALS: LevelGoals[] = [
+export const LEVEL_GOALS = [
   {
     title: "From 0 & Beginner Level",
     goals: [
-      { num: "/01", text: "Learn how to dance for yourself" },
-      { num: "/03", text: "Open your femininity and confidence" },
-      { num: "/02", text: "Become more flexible and fluid" },
-      { num: "/04", text: "Learn the dance foundation of Heels" },
+      { num: "01", text: "Learn how to dance for yourself" },
+      { num: "03", text: "Open your femininity and confidence" },
+      { num: "02", text: "Become more flexible and fluid" },
+      { num: "04", text: "Learn the dance foundation of Heels" },
     ],
   },
   {
     title: "Intermediate Level",
     goals: [
-      { num: "/01", text: "Learn and master heels technique" },
-      { num: "/03", text: "Develop flexibility and strength" },
-      { num: "/02", text: "Improve your turns and balance" },
-      { num: "/04", text: "Enhance performance and musicality" },
+      { num: "01", text: "Learn and master heels technique" },
+      { num: "03", text: "Develop flexibility and strength" },
+      { num: "02", text: "Improve your turns and balance" },
+      { num: "04", text: "Enhance performance and musicality" },
     ],
   },
 ];
@@ -64,7 +29,6 @@ export const COURSES: CourseDetail[] = [
   {
     id: "beginners",
     title: "High Heels from 0 / Beginners Course",
-    color: "#8B1A1A",
     description:
       "A foundation dance training program for people who have never danced before, beginners, or dancers of other styles who want to begin their heels dance journey.",
     learnItems: [
@@ -80,7 +44,6 @@ export const COURSES: CourseDetail[] = [
   {
     id: "intermediate",
     title: "High Heels Intermediate Course",
-    color: "#8B1A1A",
     description:
       "A technique training program for dancers confident in their heels foundation who are looking to elevate their skills in technique, balance, flexibility, and performance.",
     learnItems: [
@@ -97,20 +60,20 @@ export const COURSES: CourseDetail[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    text: "Kristi's class completely changed how I carry myself. I came in never having danced before and left feeling like a completely different — more confident — version of myself.",
-    name: "Mia K.",
+    text: "I feel more confident than ever before. Kristi doesn't just teach steps — she transforms how you feel in your body.",
+    name: "Jessica",
     detail: "Beginners Course Graduate",
     avatar: "https://i.pravatar.cc/100?img=47",
   },
   {
-    text: "The technique program is no joke — my turns and balance improved so much in just 3 weeks. The filming at the end was a bonus I'll treasure forever.",
-    name: "Sofia R.",
+    text: "It's not just dance, it's therapy. Every class I leave feeling powerful, seen, and alive.",
+    name: "Lauren",
     detail: "Intermediate Course Graduate",
     avatar: "https://i.pravatar.cc/100?img=32",
   },
   {
-    text: "I've taken heels classes in NYC and Miami — Rozez Dance is on another level. Kristi sees every student individually and pushes you to your best. Worth every penny.",
-    name: "Alicia T.",
+    text: "Best classes in LA. So much energy! I've tried studios all over the city — nothing comes close.",
+    name: "Monique",
     detail: "Returning Student",
     avatar: "https://i.pravatar.cc/100?img=25",
   },
@@ -120,30 +83,30 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "beginners",
     name: "Beginners Course",
-    description: "High Heels from 0 — perfect for first-timers and dancers of other styles",
+    description: "High Heels from 0 — for first-timers and dancers of other styles",
     price: 349,
-    period: "for the full 3-week program",
+    period: "full 3-week program",
     features: [
-      "7 classes (1.5h each)",
+      "7 classes · 1.5h each",
       "2× per week schedule",
       "Professional solo filming",
       "West Hollywood studio",
-      "Access to student community",
+      "Student community access",
     ],
     featured: false,
   },
   {
     id: "intermediate",
     name: "Intermediate Course",
-    description: "Advanced heels technique — for dancers ready to elevate to the next level",
+    description: "Advanced heels technique — for dancers ready to elevate",
     price: 399,
-    period: "for the full 3-week program",
+    period: "full 3-week program",
     features: [
-      "7 classes (1.5h each)",
+      "7 classes · 1.5h each",
       "2× per week schedule",
       "Professional solo filming",
       "West Hollywood studio",
-      "Access to student community",
+      "Student community access",
     ],
     featured: true,
   },
@@ -173,7 +136,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Can I join mid-program?",
     answer:
-      "We recommend starting from day one to get the full experience, especially since we build choreography progressively. Please contact us if you have a special situation.",
+      "We recommend starting from day one to get the full experience, since we build choreography progressively. Please contact us if you have a special situation.",
   },
   {
     question: "What is the refund policy?",
@@ -187,4 +150,6 @@ export const INSTAGRAM_IMAGES = [
   { src: "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&q=80", alt: "Performance" },
   { src: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&q=80", alt: "Heels class" },
   { src: "https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=400&q=80", alt: "Studio" },
+  { src: "https://images.unsplash.com/photo-1545959570-a94084071b5d?w=400&q=80", alt: "Movement" },
+  { src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80", alt: "Energy" },
 ];

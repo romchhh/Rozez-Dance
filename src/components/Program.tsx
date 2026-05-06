@@ -1,85 +1,80 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Calendar, Clock, Video, MapPin } from "lucide-react";
 
-const INCLUDES = [
-  { icon: "📅", text: "Classes 2 times a week" },
-  { icon: "⏱", text: "7 classes = 11h of training (1.5h each)" },
-  { icon: "🎬", text: "Professional filming solo at end of program" },
+const DETAILS = [
+  { Icon: Calendar, text: "Classes 2 times a week" },
+  { Icon: Clock,    text: "7 classes = 11h of training (1.5h each)" },
+  { Icon: Video,    text: "Professional filming solo at end of program" },
+  { Icon: MapPin,   text: "West Hollywood, Los Angeles" },
 ];
 
 export function Program() {
   return (
-    <section
-      id="program"
-      className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 px-6 md:px-14 py-24 bg-cream items-center"
-    >
-      {/* Text */}
-      <div className="reveal">
-        <div className="text-red text-[11px] font-bold tracking-[3px] uppercase mb-4">✦ The Program</div>
+    <section id="program" className="bg-ivory">
+      <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-        <h2 className="font-barlow-condensed font-black uppercase leading-none text-[clamp(36px,4vw,56px)] mb-7">
-          <span className="text-red">3 Weeks</span> Technique
-          <br />
-          Dance Program
-          <br />
-          by Kristi Rozez
-        </h2>
+        {/* Text */}
+        <div>
+          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-5 reveal">
+            ✦ The Program
+          </p>
+          <h2 className="font-display text-[clamp(42px,6vw,76px)] leading-none tracking-wider mb-8 reveal">
+            <span className="text-pink">3 WEEKS</span><br />
+            TECHNIQUE<br />
+            DANCE PROGRAM
+          </h2>
 
-        <div className="space-y-6 mb-8">
-          <div>
-            <strong className="block text-xs font-bold tracking-widest uppercase text-dark mb-2.5">2 Levels:</strong>
-            <div className="flex items-center gap-2.5 text-[15px] text-text-body mb-2">
-              <span className="text-red">👠</span> High Heels from 0 / Beginners Course
+          <p className="text-noir/60 text-sm font-medium tracking-widest uppercase mb-6 reveal">
+            2 Levels Available
+          </p>
+
+          <div className="space-y-3 mb-8 reveal">
+            <div className="flex items-center gap-3 text-sm text-noir/70">
+              <span className="w-1.5 h-1.5 rounded-full bg-pink flex-shrink-0" />
+              High Heels from 0 / Beginners Course
             </div>
-            <div className="flex items-center gap-2.5 text-[15px] text-text-body">
-              <span className="text-red">💃</span> High Heels Intermediate Course
+            <div className="flex items-center gap-3 text-sm text-noir/70">
+              <span className="w-1.5 h-1.5 rounded-full bg-pink flex-shrink-0" />
+              High Heels Intermediate Course
             </div>
           </div>
 
-          <div>
-            <strong className="block text-xs font-bold tracking-widest uppercase text-dark mb-2.5">What&apos;s Included:</strong>
-            {INCLUDES.map((item) => (
-              <div key={item.text} className="flex items-center gap-2.5 text-[15px] text-text-body mb-2">
-                <span className="text-red">{item.icon}</span>
-                {item.text}
+          <div className="border-t border-noir/10 pt-8 space-y-4 mb-10 reveal">
+            {DETAILS.map(({ Icon, text }) => (
+              <div key={text} className="flex items-center gap-4 text-sm text-noir/70">
+                <Icon size={16} className="text-pink flex-shrink-0" />
+                {text}
               </div>
             ))}
           </div>
 
-          <div>
-            <strong className="block text-xs font-bold tracking-widest uppercase text-dark mb-2.5">Location:</strong>
-            <div className="flex items-center gap-2.5 text-[15px] text-text-body">
-              <span className="text-red">📍</span> West Hollywood, Los Angeles
-            </div>
+          <div className="flex flex-wrap items-center gap-5 reveal">
+            <Link
+              href="#book"
+              className="inline-block bg-noir text-white text-xs font-semibold tracking-widest uppercase px-8 py-4 hover:bg-pink transition-colors"
+            >
+              Book Your Spot
+            </Link>
+            <Link href="#levels" className="text-noir text-xs font-medium tracking-widest uppercase pink-link">
+              Learn More
+            </Link>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6">
-          <Link
-            href="#book"
-            className="inline-block bg-red text-white px-11 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-red-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all"
-          >
-            Book Your Spot
-          </Link>
-          <Link
-            href="#levels"
-            className="text-red font-bold text-sm flex items-center gap-1.5 hover:gap-3 transition-all"
-          >
-            Learn more →
-          </Link>
+        {/* Image */}
+        <div className="relative img-zoom overflow-hidden aspect-[3/4] reveal from-right">
+          <Image
+            src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=900&q=80"
+            alt="Dance class"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          {/* Pink corner accent */}
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-pink" />
+          <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-pink" />
         </div>
-      </div>
-
-      {/* Image */}
-      <div className="reveal relative rounded-[20px] overflow-hidden aspect-[3/4] bg-dark group">
-        <Image
-          src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=900&q=80"
-          alt="Dance class"
-          fill
-          className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Plus, Minus, Play } from "lucide-react";
 import { COURSES, type CourseDetail } from "@/lib/data";
 
 function CourseCard({ course }: { course: CourseDetail }) {
@@ -9,35 +10,32 @@ function CourseCard({ course }: { course: CourseDetail }) {
 
   return (
     <div className="reveal">
-      <h3 className="font-barlow-condensed text-xl font-extrabold uppercase tracking-wide text-red mb-4">
-        {course.title}
+      <h3 className="font-display text-2xl md:text-3xl tracking-wider text-pink mb-3">
+        {course.title.toUpperCase()}
       </h3>
-      <p className="text-[15px] text-text-body leading-relaxed mb-7 pb-7 border-b border-dark/10">
+      <p className="text-noir/60 text-sm leading-relaxed mb-7 pb-7 border-b border-noir/10">
         {course.description}
       </p>
 
       {/* Accordion */}
-      <div className="border-b border-dark/10 py-5">
+      <div className="border-b border-noir/10 pb-5 mb-7">
         <button
-          className="w-full flex items-center justify-between text-sm font-bold uppercase tracking-wider text-dark cursor-pointer"
           onClick={() => setOpen((o) => !o)}
+          className="w-full flex items-center justify-between text-xs font-semibold tracking-widest uppercase text-noir py-4"
           aria-expanded={open}
         >
           What Will You Learn?
-          <span className="text-2xl text-text-muted leading-none transition-transform duration-300"
-                style={{ transform: open ? "rotate(45deg)" : "none" }}>
-            +
-          </span>
+          {open ? <Minus size={15} className="text-pink" /> : <Plus size={15} className="text-pink" />}
         </button>
 
         <div
-          className="overflow-hidden transition-all duration-400"
+          className="overflow-hidden transition-all duration-500"
           style={{ maxHeight: open ? "400px" : "0" }}
         >
-          <ul className="pt-4 pb-1 space-y-2">
+          <ul className="space-y-2.5 pb-2">
             {course.learnItems.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-text-body leading-snug">
-                <span className="text-red shrink-0">→</span>
+              <li key={item} className="flex items-start gap-3 text-sm text-noir/60">
+                <span className="text-pink mt-0.5 flex-shrink-0">→</span>
                 {item}
               </li>
             ))}
@@ -45,18 +43,18 @@ function CourseCard({ course }: { course: CourseDetail }) {
         </div>
       </div>
 
-      {/* Video preview */}
-      <div className="relative mt-7 rounded-2xl overflow-hidden aspect-video bg-dark cursor-pointer group">
+      {/* Video thumb */}
+      <div className="relative rounded-none overflow-hidden aspect-video bg-noir group img-zoom">
         <Image
           src={course.image}
           alt={course.title}
           fill
-          className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-400"
+          className="object-cover opacity-70 group-hover:opacity-85 transition-opacity"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-red/85 flex items-center justify-center pl-1 text-white text-2xl group-hover:scale-110 transition-transform">
-            ▶
+          <div className="w-14 h-14 border border-white/60 flex items-center justify-center group-hover:border-pink group-hover:bg-pink/20 transition-all">
+            <Play size={18} className="text-white ml-1" />
           </div>
         </div>
       </div>
@@ -66,15 +64,18 @@ function CourseCard({ course }: { course: CourseDetail }) {
 
 export function Levels() {
   return (
-    <section id="levels" className="bg-cream px-6 md:px-14 py-24">
-      <h2 className="reveal font-barlow-condensed font-black uppercase text-[clamp(40px,5vw,72px)] mb-14">
-        Choose Your Level
-      </h2>
+    <section id="levels" className="bg-ivory">
+      <div className="max-w-site mx-auto px-6 md:px-10 py-24 md:py-32">
+        <div className="mb-16 reveal">
+          <p className="text-pink text-[10px] font-mono tracking-[4px] uppercase mb-4">✦ Choose Your Level</p>
+          <h2 className="font-display text-[clamp(42px,6vw,80px)] leading-none tracking-wider">
+            YOUR PATH STARTS HERE
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {COURSES.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+          {COURSES.map((c) => <CourseCard key={c.id} course={c} />)}
+        </div>
       </div>
     </section>
   );

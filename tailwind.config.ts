@@ -9,40 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#F5EDE3",
-        "cream-dark": "#F0E6D8",
-        "warm-gray": "#E8DDD3",
-        dark: "#1A1008",
-        red: {
-          DEFAULT: "#8B1A1A",
-          light: "#C0392B",
+        pink: {
+          DEFAULT: "#FF1F8E",
+          light: "#FF4DA6",
+          dark: "#CC0070",
         },
-        gold: "#C9A96E",
-        "text-muted": "#7A6A5A",
-        "text-body": "#4A3A2A",
+        noir: "#0A0A0A",
+        "noir-2": "#111111",
+        "noir-3": "#1A1A1A",
+        ivory: "#F5F2EE",
+        "ivory-2": "#EDE9E3",
+        muted: "#888888",
       },
       fontFamily: {
-        playfair: ["var(--font-playfair)", "serif"],
-        barlow: ["var(--font-barlow)", "sans-serif"],
-        "barlow-condensed": ["var(--font-barlow-condensed)", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      maxWidth: {
+        site: "1160px",
       },
       animation: {
-        "hero-zoom": "heroZoom 12s ease-in-out infinite alternate",
-        "fade-up": "fadeUp 1.2s ease both",
-        "scroll-line": "scrollLine 2s ease-in-out infinite",
+        "fade-up": "fadeUp 0.8s ease both",
+        "fade-in": "fadeIn 0.6s ease both",
+        "slide-left": "slideLeft 0.8s ease both",
+        marquee: "marquee 18s linear infinite",
+        "spin-slow": "spin 20s linear infinite",
       },
       keyframes: {
-        heroZoom: {
-          from: { transform: "scale(1.05)" },
-          to: { transform: "scale(1.12)" },
-        },
         fadeUp: {
-          from: { opacity: "0", transform: "translateY(40px)" },
+          from: { opacity: "0", transform: "translateY(32px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        scrollLine: {
-          "0%,100%": { transform: "scaleY(1)", opacity: "1" },
-          "50%": { transform: "scaleY(0.5)", opacity: "0.3" },
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        slideLeft: {
+          from: { opacity: "0", transform: "translateX(32px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
       },
     },
